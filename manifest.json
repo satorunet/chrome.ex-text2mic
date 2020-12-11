@@ -1,0 +1,40 @@
+{
+	"author": "satoru.net",
+
+	"name": "text2mic",
+	"manifest_version": 2,
+	"version": "1.0.1",
+	"description": "テキスト/ファイルをマイクを経由して送受信できます。サーバ処理を行わない為、安全かつオフラインでも使用が可能です。",
+	"homepage_url":"https://satorunet.github.io/quiet-js/",
+
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+
+	"browser_action": {
+		"default_title": "text2mic",
+		"default_popup": "popup.html"
+	},
+
+	"content_scripts": [
+		{
+			"js": [
+				"lib/jquery.min.js", 
+				"lib/quiet/quiet.js",
+				"lib/quiet/quiet-emscripten.js",
+				"lib/quiet/quiet-profiles.json",
+				"app.js"
+			],
+
+		"web_accessible_resources": [
+			"quiet-emscripten.js.mem",
+			"lib/quiet/quiet-emscripten.js.mem"
+		],
+
+			"matches": ["file://foo/"]
+		}
+	]
+
+}
